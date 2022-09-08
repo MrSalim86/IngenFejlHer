@@ -35,4 +35,18 @@ public class Liste
         }
         return stringBuilder.toString().trim();
     }
+    public String printFromTail()
+    {
+        Node n = tail;
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (n != null) {
+
+            stringBuilder.append(n.data + " ");
+
+            n = n.previous;
+        }
+        return stringBuilder.toString().trim();
+    }
 }
