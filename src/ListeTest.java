@@ -23,6 +23,16 @@ class ListeTest
         assertEquals("dig",liste.tail.previous.previous.data);
 
 
+    }
+
+    @Test
+    void printFromHead()
+    {
+        liste.insertFromhead(n);
+        liste.insertFromhead(n1);
+        liste.insertFromhead(n2);
+
+       assertEquals("dig med hej",liste.printFromHead());
 
     }
 }
