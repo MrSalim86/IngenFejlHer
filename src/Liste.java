@@ -49,4 +49,20 @@ public class Liste
         }
         return stringBuilder.toString().trim();
     }
+
+    public Node insetFromTail(Node n)
+    {
+        if (isEmpty()){
+
+            tail = n;
+            head = n;
+            return tail;
+        }
+
+        n.previous = tail;
+        tail.next = n;
+        tail = n;
+        return tail;
+
+    }
 }
