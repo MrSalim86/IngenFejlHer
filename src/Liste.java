@@ -81,4 +81,10 @@ public class Liste
         return tail;
 
     }
+
+    public Node insertFromhead(String s)
+    {
+        return insertFromhead(new Node(s));
+    }
+
 }

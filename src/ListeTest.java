@@ -76,4 +76,15 @@ class ListeTest
         assertEquals("palle", liste2.printFromTail());
 
     }
+
+    @Test
+    void smartindsæt()
+    {
+        assertEquals("hej",tomListe.insertFromhead("hej").data);
+        assertEquals("med",tomListe.insertFromhead("med").data);
+        tomListe.insertFromhead("dig");
+        assertEquals("hej med dig", tomListe.printFromTail());
+
+
+    }
 }
