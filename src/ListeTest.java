@@ -5,9 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ListeTest
 {
-    Liste fyldtListe = new Liste("hold da lige op mand hvor er her meget test ");
+    Liste fyldtListe = new Liste("hold da lige op mand hvor er her meget text");
     Liste tomListe = new Liste();
     Liste liste = new Liste();
+
     Node n = new Node("hej");
     Node n1 = new Node("med");
     Node n2 = new Node("dig");
@@ -103,5 +104,19 @@ class ListeTest
         assertEquals("op",fyldtListe.findeNode("op").data);
 
 
+    }
+
+    @Test
+    void removeNodeFromhead()
+    {
+        assertEquals(null,tomListe.removeFromHead());
+        tomListe.insetFromTail("hej");
+        assertEquals("hej",tomListe.removeFromHead().data);
+        assertEquals(true,tomListe.isEmpty());
+
+        //"hold da lige op mand hvor er her meget text"
+
+        assertEquals("text",fyldtListe.removeFromHead().data);
+        assertEquals("hold da lige op mand hvor er her meget",fyldtListe.printFromTail());
     }
 }
