@@ -1,6 +1,7 @@
 public class Liste
 {
 
+
     Node head = null;
     Node tail = null;
 
@@ -90,5 +91,19 @@ public class Liste
     public Node insetFromTail(String s)
     {
         return insetFromTail(new Node(s));
+    }
+
+    public Node findeNode(String s)
+    {
+        Node n = head;
+        while (n != null){
+
+            if (n.data.equalsIgnoreCase(s)){
+                return n;
+            }
+            n = n.next;
+        }
+
+        return null;
     }
 }
