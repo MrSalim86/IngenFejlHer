@@ -4,6 +4,22 @@ public class Liste
     Node head = null;
     Node tail = null;
 
+    public Liste()
+    {
+    }
+
+    public Liste(String s)
+    {
+        String [] strings = s.split(" ");
+
+        for (String string : strings) {
+
+            insertFromhead(new Node(string));
+
+        }
+
+    }
+
     public boolean isEmpty() {
 
         return head == null && tail == null;

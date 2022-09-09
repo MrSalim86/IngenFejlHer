@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ListeTest
 {
+
+    Liste tomListe = new Liste();
     Liste liste = new Liste();
     Node n = new Node("hej");
     Node n1 = new Node("med");
@@ -61,6 +63,17 @@ class ListeTest
         assertEquals("med",liste.tail.previous.data);
         assertEquals("hej",liste.tail.previous.previous.data);
 
+
+    }
+
+    @Test
+    void smartconstructor()
+    {
+        Liste liste1 = new Liste("det er smart det her");
+        Liste liste2 = new Liste("palle");
+
+        assertEquals("det er smart det her", liste1.printFromTail());
+        assertEquals("palle", liste2.printFromTail());
 
     }
 }
