@@ -151,4 +151,29 @@ public class Liste {
         tail.next = null;      // fjerne ref fra ny tail til gammel tail.
         return res;
     }
+
+    public Node removeNode(String s) {
+        if (isEmpty()) {
+            return null;
+        }
+        Node n = findeNode(s);
+        if (n == null) {
+            return null;
+        }
+        if (n == head) {
+            return removeFromHead();
+        }
+        if (n == tail) {
+            return removeFromTail();
+        }
+
+        n.previous.next = n.next;
+        n.next.previous = n.previous;
+
+        n.next = null;
+        n.previous = null;
+
+        return n;
+
+    }
 }
