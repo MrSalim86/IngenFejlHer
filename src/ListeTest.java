@@ -90,9 +90,9 @@ class ListeTest
     @Test
     void smartInsertFromTail()
     {
-        assertEquals("hej",tomListe.insetFromTail("hej").data);
-        assertEquals("med",tomListe.insetFromTail("med").data);
-        tomListe.insetFromTail("dig");
+        assertEquals("hej",tomListe.insertFromTail("hej").data);
+        assertEquals("med",tomListe.insertFromTail("med").data);
+        tomListe.insertFromTail("dig");
         assertEquals("hej med dig", tomListe.printFromHead());
     }
 
@@ -110,7 +110,7 @@ class ListeTest
     void removeNodeFromhead()
     {
         assertEquals(null,tomListe.removeFromHead());
-        tomListe.insetFromTail("hej");
+        tomListe.insertFromTail("hej");
         assertEquals("hej",tomListe.removeFromHead().data);
         assertEquals(true,tomListe.isEmpty());
 
@@ -119,4 +119,18 @@ class ListeTest
         assertEquals("text",fyldtListe.removeFromHead().data);
         assertEquals("hold da lige op mand hvor er her meget",fyldtListe.printFromTail());
     }
+
+    @Test
+    void removeFromTail()
+    {
+        assertEquals(null, tomListe.removeFromTail());
+
+        tomListe.insertFromTail("hej");
+        assertEquals("hej",tomListe.removeFromTail().data);
+        assertEquals(true,tomListe.isEmpty());
+
+        fyldtListe.removeFromTail();
+        assertEquals("da lige op mand hvor er her meget text",fyldtListe.printFromTail());
+    }
 }
+

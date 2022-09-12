@@ -1,17 +1,14 @@
-public class Liste
-{
+public class Liste {
 
 
     Node head = null;
     Node tail = null;
 
-    public Liste()
-    {
+    public Liste() {
     }
 
-    public Liste(String s)
-    {
-        String [] strings = s.split(" ");
+    public Liste(String s) {
+        String[] strings = s.split(" ");
 
         for (String string : strings) {
 
@@ -44,8 +41,8 @@ public class Liste
         return head;
 
     }
-    public String printFromHead()
-    {
+
+    public String printFromHead() {
         Node n = head;
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -56,8 +53,8 @@ public class Liste
         }
         return stringBuilder.toString().trim();
     }
-    public String printFromTail()
-    {
+
+    public String printFromTail() {
         Node n = tail;
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -71,9 +68,8 @@ public class Liste
         return stringBuilder.toString().trim();
     }
 
-    public Node insetFromTail(Node n)
-    {
-        if (isEmpty()){
+    public Node insetFromTail(Node n) {
+        if (isEmpty()) {
 
             tail = n;
             head = n;
@@ -87,22 +83,19 @@ public class Liste
 
     }
 
-    public Node insertFromhead(String s)
-    {
+    public Node insertFromhead(String s) {
         return insertFromhead(new Node(s));
     }
 
-    public Node insetFromTail(String s)
-    {
+    public Node insertFromTail(String s) {
         return insetFromTail(new Node(s));
     }
 
-    public Node findeNode(String s)
-    {
+    public Node findeNode(String s) {
         Node n = head;
-        while (n != null){
+        while (n != null) {
 
-            if (n.data.equalsIgnoreCase(s)){
+            if (n.data.equalsIgnoreCase(s)) {
                 return n;
             }
             n = n.next;
@@ -112,9 +105,8 @@ public class Liste
     }
 
 
-    public Node removeFromHead()
-    {
-        if(isEmpty()) {
+    public Node removeFromHead() {
+        if (isEmpty()) {
             return null;
         }
         if (onlyOne()) {
@@ -135,5 +127,28 @@ public class Liste
 
         return res;
 
+    }
+
+    public Node removeFromTail() {
+        if (isEmpty()) {
+            return null;
+        }
+
+
+        if (onlyOne()) {
+
+            Node res = head;
+
+            head = null;
+            tail = null;
+
+            return res;
+        }
+        Node res = tail;
+
+        tail = tail.previous; // flytter tail frem i listen til næste sidte knude
+        tail.next.previous = null; //fjerne ref fra gammel tail til nu;
+        tail.next = null;      // fjerne ref fra ny tail til gammel tail.
+        return res;
     }
 }
