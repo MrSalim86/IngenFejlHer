@@ -151,5 +151,19 @@ class ListeTest
 
 
     }
+
+    @Test
+    void insetAfterNode()
+
+    {
+        // new Liste("hold da lige op mand hvor er her meget text"
+        assertEquals(null, tomListe.insetAfter("shit","op"));
+        assertEquals("shit",fyldtListe.insetAfter("shit", "op").data);
+        assertEquals("hold da lige op shit mand hvor er her meget text",fyldtListe.printFromTail());
+
+        tomListe.insertFromhead("første");
+        tomListe.insetAfter("nyKnude", "første");
+        assertEquals("nyKnude første",tomListe.printFromTail());
+    }
 }
 

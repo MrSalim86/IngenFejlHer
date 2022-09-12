@@ -176,4 +176,39 @@ public class Liste {
         return n;
 
     }
+
+
+    public Node insetAfter(String ny, String gammel)
+    {
+        if (isEmpty()) { // listen var tom
+            return null;
+        }
+        Node gammelNode = findeNode(gammel);
+
+        if (gammelNode == null) { // fandet ikke knude
+            System.out.println("knude findes ikke");
+            return null;
+        }
+
+        // listen var ikke tom og gammel knude findes.
+
+        Node nyKnude = new Node(ny);
+
+        if (gammelNode == tail) {
+            System.out.println("knuden indsættes efter sindste");
+            return insetFromTail(nyKnude);
+        }
+
+        System.out.println("knuden findes i mindten");
+
+        // knuden skal indsættes mindt inde i listen
+
+        nyKnude.previous = gammelNode.previous;
+        nyKnude.next = gammelNode;
+
+        nyKnude.previous.next = nyKnude;
+        nyKnude.next.previous = nyKnude;
+
+        return nyKnude;
+    }
 }
